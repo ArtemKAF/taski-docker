@@ -1,30 +1,30 @@
 version: '3'
 volumes:
-  pg_data:
-  static:
+  pg_data_prodaction:
+  static_volume:
 services:
   db:
     image: postgres:13.10
     env_file: .env
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      - pg_data_prodaction:/var/lib/postgresql/data
   backend:
-    build: ./backend/
+    image: kafartem/taski_backend
     env_file: .env
     volumes:
-      - static:/backend_static
+      - static_volume:/backend_static
     depends_on:
       - db
   frontend:
+    image: kafartem/taski_frontend
     env_file:
       - .env
-    build: ./frontend
     volumes:
-      - static:/frontend_static
+      - static_volume:/frontend_static
     command: cp -r /app/build/. /frontend_static/
   gateway:
-    build: ./gateway
+    image: kafartem/taski_gateway
     volumes:
-      - static:/staticfiles/
+      - static_volume:/staticfiles/
     ports:
       - 8000:80
