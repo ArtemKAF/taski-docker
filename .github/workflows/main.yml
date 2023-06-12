@@ -1,10 +1,5 @@
 name: Main Taski Workflow
-
-on:
-    push:
-        branches:
-            - main
-
+on: workflow_dispatch
 jobs:
     checkout-and-print-tree:
         runs-on:
