@@ -4,7 +4,7 @@ volumes:
   static_volume:
 services:
   db:
-    image: postgres3.10:alpine3.17
+    image: postgres:3.10-alpine3.17
     env_file: .env
     volumes:
       - pg_data_prodaction:/var/lib/postgresql/data

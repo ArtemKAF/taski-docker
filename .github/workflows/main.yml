@@ -9,7 +9,7 @@ jobs:
       ubuntu-latest
     services:
       postgres:
-        image: postgres3.10:alpine3.17
+        image: postgres:3.10-alpine3.17
         env:
           POSTGRES_USER: django_user
           POSTGRES_PASSWORD: django_password
