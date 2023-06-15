@@ -9,7 +9,7 @@ jobs:
       ubuntu-latest
     services:
       postgres:
-        image: postgres:3.10-alpine3.17
+        image: postgres:13.10-alpine3.17
         env:
           POSTGRES_USER: django_user
           POSTGRES_PASSWORD: django_password
@@ -66,7 +66,7 @@ jobs:
       - name: Set up nodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: 18.16.0-alpine3.18
+          node-version: 18-alpine3.18
       - name: Install dependencies
         run: |
           cd frontend/
